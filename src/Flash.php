@@ -52,6 +52,10 @@ class Flash implements FlashInterface, IteratorAggregate, Countable
      */
     public function next($name, $value)
     {
+        if ((string) $name === '') {
+            throw new \InvalidArgumentException('$name cannot be empty');
+        }
+
         $this->session->set($name, $value);
 
         return $this;
