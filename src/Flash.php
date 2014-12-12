@@ -99,6 +99,10 @@ class Flash implements FlashInterface, IteratorAggregate, Countable
      */
     public function has($name)
     {
+        if ((string) $name === '') {
+            throw new \InvalidArgumentException('$name cannot be empty');
+        }
+
         return array_key_exists($name, $this->data);
     }
 

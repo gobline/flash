@@ -68,6 +68,8 @@ interface FlashInterface
      *
      * @param mixed $name
      *
+     * @throws \InvalidArgumentException
+     *
      * @return bool
      */
     public function has($name);
