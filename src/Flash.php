@@ -25,12 +25,26 @@ class Flash implements FlashInterface, IteratorAggregate, Countable
 
     private $data;
     private $session;
+    private $initialized = false;
 
     public function __construct()
     {
         $this->session = new NamespacedSession(self::SESSION_NAMESPACE);
+    }
+
+    public function initialize()
+    {
         $this->data = $this->session->getArrayCopy();
         $this->session->clearAll();
+
+        $this->initialized = true;
+    }
+
+    public function checkInitialized()
+    {
+        if (!$this->initialized) {
+            throw new \RuntimeException('Flash has not been initialized');
+        }
     }
 
     /**
@@ -41,6 +55,8 @@ class Flash implements FlashInterface, IteratorAggregate, Countable
         if ((string) $name === '') {
             throw new \InvalidArgumentException('$name cannot be empty');
         }
+
+        $this->checkInitialized();
 
         $this->data[$name] = $value;
 
@@ -56,6 +72,8 @@ class Flash implements FlashInterface, IteratorAggregate, Countable
             throw new \InvalidArgumentException('$name cannot be empty');
         }
 
+        $this->checkInitialized();
+
         $this->session->set($name, $value);
 
         return $this;
@@ -66,6 +84,8 @@ class Flash implements FlashInterface, IteratorAggregate, Countable
      */
     public function keep()
     {
+        $this->checkInitialized();
+
         foreach ($this->data as $key => $value) {
             $this->session->set($key, $value);
         }
@@ -76,6 +96,8 @@ class Flash implements FlashInterface, IteratorAggregate, Countable
      */
     public function get(...$args)
     {
+        $this->checkInitialized();
+
         switch (count($args)) {
             default:
                 throw new \InvalidArgumentException('get() takes one or two arguments');
@@ -99,6 +121,8 @@ class Flash implements FlashInterface, IteratorAggregate, Countable
      */
     public function has($name)
     {
+        $this->checkInitialized();
+
         if ((string) $name === '') {
             throw new \InvalidArgumentException('$name cannot be empty');
         }
@@ -111,6 +135,8 @@ class Flash implements FlashInterface, IteratorAggregate, Countable
      */
     public function getIterator()
     {
+        $this->checkInitialized();
+
         return new ArrayIterator($this->data);
     }
 
@@ -119,6 +145,8 @@ class Flash implements FlashInterface, IteratorAggregate, Countable
      */
     public function getArrayCopy()
     {
+        $this->checkInitialized();
+
         return $this->data;
     }
 
@@ -127,6 +155,8 @@ class Flash implements FlashInterface, IteratorAggregate, Countable
      */
     public function count()
     {
+        $this->checkInitialized();
+
         return count($this->data);
     }
 }
