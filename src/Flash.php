@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Mendo Framework
+ * Gobline Framework
  *
  * (c) Mathieu Decaffmeyer <mdecaffmeyer@gmail.com>
  *
@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Mendo\Flash;
+namespace Gobline\Flash;
 
-use Mendo\Session\NamespacedSession;
+use Gobline\Session\NamespacedSession;
 use \IteratorAggregate;
 use \Countable;
 use \ArrayIterator;
@@ -21,7 +21,7 @@ use \ArrayIterator;
  */
 class Flash implements FlashInterface, IteratorAggregate, Countable
 {
-    const SESSION_NAMESPACE = 'Mendo_Flash';
+    const SESSION_NAMESPACE = 'Gobline_Flash';
 
     private $data;
     private $session;

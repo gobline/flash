@@ -1,6 +1,6 @@
 {
-    "name": "mendoframework/flash",
-    "description": "Mendo Flash Component",
+    "name": "gobline/flash",
+    "description": "Gobline Flash Component",
     "license": "BSD-3-Clause",
     "authors": [
         {
@@ -9,18 +9,18 @@
         }
     ],
     "keywords": [
-        "mf", "mendoframework", "mendo framework",
+        "gobline", 
         "flash", "flashmessenger", "flash messenger"
     ],
-    "homepage": "https://github.com/mendoframework",
+    "homepage": "https://github.com/gobline",
     "autoload": {
         "psr-4": {
-            "Mendo\\Flash\\": "src/"
+            "Gobline\\Flash\\": "src/"
         }
     },
     "require": {
         "php": ">=5.6.0",
-        "mendoframework/session": "~1.0"
+        "gobline/session": "~1.0"
     },
     "require-dev": {
         "pimple/pimple": "3.0.*@dev",

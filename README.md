@@ -1,11 +1,11 @@
-# Flash Component - Mendo Framework
+# Flash component
 
-The Mendo Flash component allows to **store data across requests and objects** with a **session or request level scope**. It is primarily designed to store **messages** accross requests.
+The Flash component allows to **store data across requests and objects** with a **session or request level scope**. It is primarily designed to store **messages** accross requests.
 
 ## Usage
 
 ```php
-$flash = new Mendo\Flash\Flash();
+$flash = new Gobline\Flash\Flash();
 
 $flash->next('error', 'User email is invalid'); // sets a message that will be available in the next request
 
@@ -24,9 +24,9 @@ Note that messages stored with ```next()``` are made available for the next requ
 
 ## Installation
 
-You can install Mendo Flash using the dependency management tool [Composer](https://getcomposer.org/).
+You can install the Flash component using the dependency management tool [Composer](https://getcomposer.org/).
 Run the *require* command to resolve and download the dependencies:
 
 ```
-composer require mendoframework/flash
+composer require gobline/flash
 ```
