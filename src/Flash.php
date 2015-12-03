@@ -12,9 +12,9 @@
 namespace Gobline\Flash;
 
 use Gobline\Session\NamespacedSession;
-use \IteratorAggregate;
-use \Countable;
-use \ArrayIterator;
+use IteratorAggregate;
+use Countable;
+use ArrayIterator;
 
 /**
  * @author Mathieu Decaffmeyer <mdecaffmeyer@gmail.com>
