@@ -24,6 +24,7 @@ class FlashTest extends PHPUnit_Framework_TestCase
         @session_start();
 
         $this->flash = new Flash();
+        $this->flash->initialize();
     }
 
     public function testFlashNext()
