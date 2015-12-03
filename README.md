@@ -6,6 +6,7 @@ The Flash component allows to **store data across requests and objects** with a 
 
 ```php
 $flash = new Gobline\Flash\Flash();
+$flash->initialize();
 
 $flash->next('error', 'User email is invalid'); // sets a message that will be available in the next request
 
